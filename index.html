@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>掛け率計算アプリ</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4f46e5">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>掛け率計算アプリ</h1>
+        </header>
+
+        <section class="multiplier-section card">
+            <div class="input-group">
+                <label for="multiplier">掛け率 (A)</label>
+                <input type="number" id="multiplier" step="0.01" value="1.0" placeholder="例: 1.1">
+            </div>
+        </section>
+
+        <section class="calculation-section card">
+            <div class="header-row">
+                <span class="col-input">入力 (B)</span>
+                <span class="col-operator"></span>
+                <span class="col-result">出力</span>
+                <span class="col-action"></span>
+            </div>
+            <div id="row-container">
+                <!-- 行がここに追加される -->
+            </div>
+            
+            <button id="add-row-btn" class="btn btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                次の行を追加する
+            </button>
+        </section>
+    </div>
+
+    <!-- テンプレート -->
+    <template id="row-template">
+        <div class="calc-row">
+            <input type="number" class="input-b" step="any" placeholder="数字" inputmode="decimal">
+            <span class="operator-icon">×</span>
+            <input type="number" class="output-result" readonly placeholder="0">
+            <button class="btn-delete" aria-label="行を削除">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+            </button>
+        </div>
+    </template>
+
+    <script src="app.js"></script>
+</body>
+</html>
